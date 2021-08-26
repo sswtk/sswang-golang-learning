@@ -18,9 +18,11 @@ thinking:
  */
 
 func lengthOfNoneRepeatingSubStr(s string) int {
-	lastOccurred := make(map[byte]int)
+	//lastOccurred := make(map[byte]int)
+	lastOccurred := make(map[rune]int)
 	start, maxLength := 0, 0
-	for i, ch := range [] byte(s) {
+	//for i, ch := range []byte(s) {  //此方式不支持中文
+	for i, ch := range []rune(s) {
 		if lastI, ok := lastOccurred[ch]; ok && lastI >=  start{
 			start = lastI + 1
 		}
@@ -39,5 +41,7 @@ func main(){
 	fmt.Println(lengthOfNoneRepeatingSubStr(""))
 	fmt.Println(lengthOfNoneRepeatingSubStr("b"))
 	fmt.Println(lengthOfNoneRepeatingSubStr("pfewd"))
+	fmt.Println(lengthOfNoneRepeatingSubStr("一三五七九"))
+	fmt.Println(lengthOfNoneRepeatingSubStr("这是南京"))
 }
 
