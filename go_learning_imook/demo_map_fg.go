@@ -10,6 +10,13 @@ fg: 寻找最长不含有重复字符的字串（leetcode）
 */
 
 
+/*
+thinking:
+	lastOccurred[x]不存在，或者< start -> 无需操作
+	lastOccurred[x] >= start -> 更新start
+	更新lastOccurred[x],更新maxLength
+ */
+
 func lengthOfNoneRepeatingSubStr(s string) int {
 	lastOccurred := make(map[byte]int)
 	start, maxLength := 0, 0
